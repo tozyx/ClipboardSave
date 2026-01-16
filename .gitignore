@@ -31,3 +31,32 @@ bin/
 
 /.idea/
 /剪贴板2024-11-28-214959.png
+/剪贴板2026-01-03-114238.png
+
+### Java ###
+*.class
+*.log
+*.jar
+*.war
+
+### Gradle ###
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+
+### OS ###
+.DS_Store
+Thumbs.db
+
+### Project Specific ###
+# 忽略本项目生成的临时图片和脚本
+/clipboardsave.ico
+/clipboardsave.png
+/run_silent.vbs
+/install_menu.reg
+/uninstall_menu.reg
+/剪贴板*.png
