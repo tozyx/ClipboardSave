@@ -17,10 +17,10 @@ import java.util.Date;
 
 import javax.imageio.ImageIO;
 
-public class clipboard {
+public class ClipboardUtils {
     private final Clipboard clipboard;
 
-    public clipboard() {
+    public ClipboardUtils() {
         this.clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
     }
 
@@ -32,7 +32,7 @@ public class clipboard {
     public String spawnName() {
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd-HHmmss");
-        return formatter.format(date)+".";
+        return formatter.format(date);
     }
 
     /**
@@ -136,10 +136,10 @@ public class clipboard {
         return null; // Return null if no image found
     }
 
-    public boolean writeImageToFile(Image image, String filePath, String formatName) {
+    public void writeImageToFile(Image image, String filePath, String formatName) {
         if (image == null) {
             System.err.println("Error: The provided Image object is null.");
-            return false;
+            return;
         }
         // 如果image不是BufferedImage的实例，我们需要先将其转换为BufferedImage
         if (!(image instanceof BufferedImage)) {
@@ -152,10 +152,10 @@ public class clipboard {
             g2d.dispose(); // 释放Graphics2D资源
 
             // 使用ImageIO将BufferedImage写入文件
-            return writeBufferedImageToFile(bufferedImage, filePath, formatName);
+            writeBufferedImageToFile(bufferedImage, filePath, formatName);
         } else {
             // 如果image已经是BufferedImage的实例，则直接写入文件
-            return writeBufferedImageToFile((BufferedImage) image, filePath, formatName);
+            writeBufferedImageToFile((BufferedImage) image, filePath, formatName);
         }
     }
 
